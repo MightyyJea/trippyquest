@@ -1,0 +1,41 @@
+{
+	"schemaVersion": 1,
+	"id": "trippyquest",
+	"version": "${version}",
+	"name": "trippyquest",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"Me!"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/trippyquest/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"org.jea.Trippyquest"
+		],
+		"client": [
+			"org.jea.TrippyquestClient"
+		],
+		"fabric-datagen": [
+			"org.jea.TrippyquestDataGenerator"
+		]
+	},
+	"mixins": [
+		"trippyquest.mixins.json",
+		{
+			"config": "trippyquest.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.18.4",
+		"minecraft": "~1.21.10",
+		"java": ">=21",
+		"fabric-api": "*"
+	}
+}
