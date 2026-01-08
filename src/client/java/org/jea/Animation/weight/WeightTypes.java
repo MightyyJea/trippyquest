@@ -22,6 +22,8 @@ public class WeightTypes {
     //public static DefaultedMappedRegistry<WeightType> WeightTypeRegistry = new DefaultedMappedRegistry("weight", ResourceKey.createRegistryKey(TrippyquestClient.fromMod("weight_type_registry")), Lifecycle.stable(), true);
 
     public static WeightType<?> UseMS = register(new WeightType<>( TrippyquestClient.fromMod("usems"),new UseTimeRangedBalance(2f)));
+    public static WeightType<?> ReleaseMS = register(new WeightType<>( TrippyquestClient.fromMod("releasems"),new ReleaseTimeRangedBalance(2f)));
+    public static WeightType<?> GaugeUse = register(new WeightType<>( TrippyquestClient.fromMod("gaugeuse"),new UseGaugeBalance()));
 
     private static WeightType<?> register(WeightType<?> type){
         if(type.balance() instanceof  BalanceEvent event){

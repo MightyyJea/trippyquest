@@ -23,7 +23,7 @@ public class ItemInHandRendererMixin {
     @Inject(method = "renderArmWithItem", at= @At(value = "INVOKE", opcode = Opcodes.IFEQ, ordinal = 1, shift = At.Shift.BEFORE, target = "net/minecraft/client/renderer/ItemInHandRenderer.renderItem (Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/item/ItemDisplayContext;Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/SubmitNodeCollector;I)V"))
     public void onRenderArmWithItem(AbstractClientPlayer abstractClientPlayer, float f, float g, InteractionHand interactionHand, float h, ItemStack itemStack, float i, PoseStack poseStack, SubmitNodeCollector submitNodeCollector, int j, CallbackInfo ci){
         Item item = itemStack.getItem();
-        if(abstractClientPlayer.isUsingItem() && abstractClientPlayer.getMainHandItem().getItem() == AllItems.BLUNTITEM)
+        if(abstractClientPlayer.getMainHandItem().getItem() == AllItems.BLUNTITEM)
             ClientCache.ANIMATION_CONTEXT_MANAGER.ResolveAnimations(poseStack);
     }
 }

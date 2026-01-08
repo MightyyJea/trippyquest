@@ -7,4 +7,8 @@ public class LerpingUtils {
 
             return i2 * x * x * x - i * x * x;
     }
+    public static  float easeOutQuint(float x){
+        return (float) (1 - Math.pow(1 - x, 5));
+    }
+
 }

@@ -17,13 +17,7 @@ public class test extends AnimationDefinition{
     public void applyAnimation(PoseStack poseStack, float t) {
         Vec3 startpos = new Vec3(0,0,0);
         Vec3 finalpos = new Vec3(-0.6  ,0.2 ,0.1 );
-        //TrippyquestClient.print("i : "+i+" f : " +f+" g : "+g +" h : " +h + " j : " +j);
-//        if(time > 1F ){
-//            poseStack.translate(finalpos);
-//            return;
-//        }
-        float lerp = LerpingUtils.easeInBack(t) ;
-        TrippyquestClient.print("lerp " +lerp +" time "+ t);
+        float lerp = LerpingUtils.easeOutQuint(t) ;
         Vec3 smoothon = Mth.lerp( lerp  , startpos, finalpos);
 
         poseStack.translate(smoothon);

@@ -2,6 +2,7 @@ package org.jea.Animation;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.resources.ResourceLocation;
+import org.jea.Animation.weight.ReleaseTimeRangedBalance;
 import org.jea.Animation.weight.WeightType;
 import org.jea.Animation.weight.WeightTypes;
 import org.jea.TrippyquestClient;
@@ -21,7 +22,7 @@ public class CustomAnimationManager {
         }
     }
     private void defineAnimationSet() {
-        addAnimation(WeightTypes.UseMS, new test());
+        addAnimation(WeightTypes.GaugeUse, new test());
     }
     private void addAnimation(WeightType<?> weightType, AnimationDefinition definition){
 

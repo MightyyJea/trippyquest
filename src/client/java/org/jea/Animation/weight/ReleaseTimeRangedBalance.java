@@ -2,6 +2,7 @@ package org.jea.Animation.weight;
 
 import net.minecraft.Util;
 import org.jea.ReleaseEvent;
+import org.jea.TrippyquestClient;
 
 public class ReleaseTimeRangedBalance extends Balance implements BalanceEvent{
     float maxduring;
@@ -12,8 +13,8 @@ public class ReleaseTimeRangedBalance extends Balance implements BalanceEvent{
 
     @Override
     public float getWeight() {
-        float range = lastReleaseMS - Util.getMillis();
-        return range/maxduring;
+        float range =  Util.getMillis() - lastReleaseMS;
+        return  range/(maxduring*1000);
     }
 
     @Override
