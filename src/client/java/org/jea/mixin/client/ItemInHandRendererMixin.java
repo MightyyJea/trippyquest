@@ -24,7 +24,7 @@ public class ItemInHandRendererMixin {
     public void onRenderArmWithItem(AbstractClientPlayer abstractClientPlayer, float f, float g, InteractionHand interactionHand, float h, ItemStack itemStack, float i, PoseStack poseStack, SubmitNodeCollector submitNodeCollector, int j, CallbackInfo ci){
         Item item = itemStack.getItem();
         if(abstractClientPlayer.isUsingItem() && abstractClientPlayer.getMainHandItem().getItem() == AllItems.BLUNTITEM)
-            ClientCache.ANIMATION_CONTEXT_MANAGER.ResolveAnimation().applyAnimation(poseStack);
+            ClientCache.ANIMATION_CONTEXT_MANAGER.ResolveAnimations(poseStack);
     }
 }
 

@@ -3,7 +3,7 @@
   "package": "org.jea.mixin.client",
   "compatibilityLevel": "JAVA_21",
   "client": [
-    "ItemInHandRendererMixin"
+    "ItemInHandRendererMixin",
   ],
   "injectors": {
     "defaultRequire": 1

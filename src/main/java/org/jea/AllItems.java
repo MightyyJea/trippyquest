@@ -7,6 +7,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 
+
 import java.util.function.Function;
 
 public class AllItems {
@@ -26,5 +27,5 @@ public class AllItems {
         return item;
     }
 
-    public static BluntItem BLUNTITEM = register("blunt",BluntItem::new,new Item.Properties());
+    public static BluntItem BLUNTITEM = register("blunt", BluntItem::new,new Item.Properties());
 }

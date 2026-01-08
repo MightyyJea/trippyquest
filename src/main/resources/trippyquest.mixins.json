@@ -3,7 +3,7 @@
 	"package": "org.jea.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
-		"ExampleMixin"
+		"UseDurationModifierMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
