@@ -5,6 +5,8 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandManager;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
+import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElementRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.hud.VanillaHudElements;
 import net.fabricmc.fabric.api.command.v2.ArgumentTypeRegistry;
 import net.minecraft.client.Minecraft;
 import net.minecraft.commands.synchronization.SingletonArgumentInfo;
@@ -18,6 +20,7 @@ public class TrippyquestClient implements ClientModInitializer {
   	public void onInitializeClient() {
 			wasPressed = false;
 		registerBluntRelatedEvent();
+            HudElementRegistry.addFirst(Trippyquest.);
         ClientCommandRegistrationCallback.EVENT.register((dispatcher, registryAccess) -> {
 			dispatcher.register(
 					ClientCommandManager.literal("vector")
