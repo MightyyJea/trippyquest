@@ -1,5 +1,6 @@
 package org.jea;
 
+import com.mojang.authlib.minecraft.client.MinecraftClient;
 import com.mojang.brigadier.Command;
 import com.mojang.serialization.Codec;
 import net.fabricmc.api.ModInitializer;
@@ -26,6 +27,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.MinecartItem;
 import net.minecraft.world.item.crafting.Recipe;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

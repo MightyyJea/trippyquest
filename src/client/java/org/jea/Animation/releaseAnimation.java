@@ -1,8 +1,11 @@
 package org.jea.Animation;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.client.Minecraft;
+import net.minecraft.network.chat.Component;
 import net.minecraft.util.Mth;
 import net.minecraft.world.phys.Vec3;
+import org.jea.Animation.HUDAnimtionHelper.ScreenAnimationHelper;
 import org.jea.LerpingUtils;
 import org.jea.TrippyquestClient;
 
@@ -14,6 +17,7 @@ public class releaseAnimation extends AnimationDefinition{
         float lerp = LerpingUtils.easeInBack(weight) ;
         Vec3 smoothon = Mth.lerp( lerp  , finalpos, startpos);
 
+        Minecraft.getInstance().setScreen(new ScreenAnimationHelper(Component.literal("test")));
         poseStack.translate(smoothon);
     }
 }

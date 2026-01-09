@@ -33,7 +33,7 @@ public class UseGaugeBalance extends Balance implements BalanceEvent{
 
             float pt = Minecraft.getInstance().getDeltaTracker().getGameTimeDeltaTicks() / 20;
 
-            TrippyquestClient.print("gauge "+gauge);
+            //TrippyquestClient.print("gauge "+gauge);
             if(Minecraft.getInstance().mouseHandler.isRightPressed()){
                 if(gauge + increase * pt >= 1f){
                     return;

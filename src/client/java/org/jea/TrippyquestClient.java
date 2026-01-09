@@ -6,13 +6,14 @@ import net.fabricmc.fabric.api.client.command.v2.ClientCommandManager;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElementRegistry;
-import net.fabricmc.fabric.api.client.rendering.v1.hud.VanillaHudElements;
 import net.fabricmc.fabric.api.command.v2.ArgumentTypeRegistry;
+import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraft.commands.synchronization.SingletonArgumentInfo;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.phys.Vec3;
+import org.jea.Animation.HUDAnimtionHelper.ScreenAnimationHelper;
 
 public class TrippyquestClient implements ClientModInitializer {
 	boolean wasPressed;
@@ -20,8 +21,16 @@ public class TrippyquestClient implements ClientModInitializer {
   	public void onInitializeClient() {
 			wasPressed = false;
 		registerBluntRelatedEvent();
-            HudElementRegistry.addFirst(Trippyquest.);
+		registerArgumentType();
+		AllKeys.init();
+		ClientCommandRegistrationCallback.EVENT.register(((commandDispatcher, commandBuildContext) ->
+			commandDispatcher.register(ClientCommandManager.literal("animutils").executes(context -> {
+				openAnimUtils();
+				return 1;
+			}))
+		));
         ClientCommandRegistrationCallback.EVENT.register((dispatcher, registryAccess) -> {
+
 			dispatcher.register(
 					ClientCommandManager.literal("vector")
 							.then(
@@ -45,6 +54,9 @@ public class TrippyquestClient implements ClientModInitializer {
 	public static ResourceLocation fromMod(String path){
 		return ResourceLocation.fromNamespaceAndPath(Trippyquest.MOD_ID, path);
 	}
+	public static void openAnimUtils(){
+			Minecraft.getInstance().setScreen(new ScreenAnimationHelper(Component.literal("AnimUtils")));
+	}
 	private void registerBluntRelatedEvent(){
 		ClientTickEvents.START_WORLD_TICK.register(clientLevel->{
 			if(Minecraft.getInstance().mouseHandler.isRightPressed()){
@@ -52,6 +64,13 @@ public class TrippyquestClient implements ClientModInitializer {
 			}else if (!Minecraft.getInstance().mouseHandler.isRightPressed() && wasPressed){
 				wasPressed = false;
 				ReleaseEvent.RELEASE_EVENT.invoker().onReleaseUsing(Minecraft.getInstance().player, clientLevel);
+			}
+		});
+		ClientTickEvents.END_CLIENT_TICK.register(client -> {
+			if (AllKeys.toggleAnimUtils.isDown() ) {
+				if (client.player != null) {
+					openAnimUtils();
+				}
 			}
 		});
 	}
