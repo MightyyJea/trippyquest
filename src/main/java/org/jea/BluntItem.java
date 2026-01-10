@@ -12,10 +12,11 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import org.jea.mixin.UseDurationModifierMixin;
 
-public class BluntItem extends Item {
+public class BluntItem extends Item implements CustomAnimationItem{
     public BluntItem(Properties properties) {
         super(properties);
         properties.setId(ResourceKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(Trippyquest.MOD_ID, "blunt")));
+        properties.component(AllDataComponents.CUSTOM_ANIMATION, true);
     }
 
     @Override
@@ -37,6 +38,7 @@ public class BluntItem extends Item {
     public int getUseDuration(ItemStack itemStack, LivingEntity livingEntity) {
         return 3000;
     }
+
 //
 //    @Override
 //    public ItemStack finishUsingItem(ItemStack itemStack, Level level, LivingEntity livingEntity) {

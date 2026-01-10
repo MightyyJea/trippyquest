@@ -13,7 +13,10 @@ import net.minecraft.commands.synchronization.SingletonArgumentInfo;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.phys.Vec3;
+import org.jea.Animation.AnimationContextManager;
 import org.jea.Animation.HUDAnimtionHelper.ScreenAnimationHelper;
+
+import static org.jea.Animation.AnimationContextManager.CustomItems;
 
 public class TrippyquestClient implements ClientModInitializer {
 	boolean wasPressed;
@@ -23,6 +26,8 @@ public class TrippyquestClient implements ClientModInitializer {
 		registerBluntRelatedEvent();
 		registerArgumentType();
 		AllKeys.init();
+		CustomItems.put(AllItems.BLUNTITEM, new AnimationContextManager());
+		Vector3DebugStorage.init();
 		ClientCommandRegistrationCallback.EVENT.register(((commandDispatcher, commandBuildContext) ->
 			commandDispatcher.register(ClientCommandManager.literal("animutils").executes(context -> {
 				openAnimUtils();
@@ -36,7 +41,6 @@ public class TrippyquestClient implements ClientModInitializer {
 							.then(
 									ClientCommandManager.argument("clientvec3", new ClientVec3Argument())
 											.executes(context -> {
-												Vector3DebugStorage.blunt = context.getArgument("clientvec3", Vec3.class);
 												context.getSource().sendFeedback(Component.literal("called"));
 
 												return 1;

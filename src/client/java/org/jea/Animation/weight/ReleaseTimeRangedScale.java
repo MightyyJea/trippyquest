@@ -2,12 +2,11 @@ package org.jea.Animation.weight;
 
 import net.minecraft.Util;
 import org.jea.ReleaseEvent;
-import org.jea.TrippyquestClient;
 
-public class ReleaseTimeRangedBalance extends Balance implements BalanceEvent{
+public class ReleaseTimeRangedScale extends Scale implements ScaleEvent {
     float maxduring;
     float lastReleaseMS;
-    public ReleaseTimeRangedBalance(float during){
+    public ReleaseTimeRangedScale(float during){
         maxduring = during;
     }
 

@@ -1,13 +1,9 @@
 package org.jea.Animation;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import net.fabricmc.fabric.api.serialization.v1.view.FabricReadView;
 import net.minecraft.util.Mth;
 import net.minecraft.world.phys.Vec3;
-import org.jea.Animation.weight.WeightType;
-import org.jea.ClientCache;
 import org.jea.LerpingUtils;
-import org.jea.TrippyquestClient;
 
 public class test extends AnimationDefinition{
     public test(){

@@ -3,13 +3,12 @@ package org.jea.Animation.weight;
 import net.fabricmc.fabric.api.event.player.UseItemCallback;
 import net.minecraft.Util;
 import net.minecraft.world.InteractionResult;
-import org.jea.AllItems;
 import org.jea.TrippyquestClient;
 
-public class UseTimeRangedBalance extends Balance implements BalanceEvent {
+public class UseTimeRangedScale extends Scale implements ScaleEvent {
     float maxDuring;
     float UseStartMS;
-    public UseTimeRangedBalance(float during){
+    public UseTimeRangedScale(float during){
         maxDuring=during*1000f;
     }
     @Override
